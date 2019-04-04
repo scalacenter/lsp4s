@@ -64,8 +64,8 @@ lazy val V = new {
   val scala211 = "2.11.12"
   val scala212 = "2.12.6"
   val enumeratumCirce = "1.5.18"
-  val circe = "0.10.0"
-  val circeDerivation = "0.10.0-M1"
+  val circe = "0.11.0"
+  val circeDerivation = "0.11.0-M1"
   val cats = "1.4.0"
   val monix = "3.0.0-RC2"
 }
