@@ -48,8 +48,8 @@ inThisBuild(
     libraryDependencies += "io.monix" %% "minitest" % "2.1.1" % "test",
     testFrameworks += new TestFramework("minitest.runner.Framework"),
     // faster publishLocal:
-    publishArtifact in packageDoc := sys.env.contains("CI"),
-    publishArtifact in packageSrc := sys.env.contains("CI"),
+    //publishArtifact in packageDoc := sys.env.contains("CI"),
+    //publishArtifact in packageSrc := sys.env.contains("CI"),
     addCompilerPlugin(
       "org.scalamacros" % "paradise" % "2.1.0" cross CrossVersion.full
     )
