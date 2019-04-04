@@ -1,6 +1,6 @@
 inThisBuild(
   List(
-    organization := "org.scalameta",
+    organization := "ch.epfl.scala",
     homepage := Some(url("https://github.com/scalameta/lsp4s")),
     publishMavenStyle := true,
     licenses := Seq(
@@ -42,7 +42,6 @@ inThisBuild(
       // https://github.com/scala/bug/issues/10448
       "-Ywarn-unused-import"
     ),
-    organization := "org.scalameta",
     licenses := Seq(
       "Apache-2.0" -> url("http://www.apache.org/licenses/LICENSE-2.0")
     ),
