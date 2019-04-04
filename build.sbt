@@ -66,7 +66,6 @@ lazy val V = new {
   val enumeratumCirce = "1.5.18"
   val circe = "0.11.0"
   val circeDerivation = "0.11.0-M1"
-  val cats = "1.4.0"
   val monix = "3.0.0-RC2"
 }
 
@@ -79,8 +78,7 @@ lazy val jsonrpc = project
       "io.circe" %% "circe-core" % V.circe,
       "io.circe" %% "circe-derivation-annotations" % V.circeDerivation,
       "io.circe" %% "circe-parser" % V.circe,
-      "io.monix" %% "monix" % V.monix,
-      "org.typelevel" %% "cats-core" % V.cats
+      "io.monix" %% "monix" % V.monix
     )
   )
 
