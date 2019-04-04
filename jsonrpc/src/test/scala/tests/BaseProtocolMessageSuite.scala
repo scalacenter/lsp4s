@@ -29,7 +29,7 @@ object BaseProtocolMessageSuite extends SimpleTestSuite {
 
   private val s = TestScheduler()
   def await[T](f: Task[T]): T = {
-    val a = f.runAsync(s)
+    val a = f.runToFuture(s)
     while (s.tickOne()) ()
     Await.result(a, Duration("5s"))
   }

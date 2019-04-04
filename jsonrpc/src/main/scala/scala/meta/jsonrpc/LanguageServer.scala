@@ -94,7 +94,7 @@ final class LanguageServer(
               logger.error(s"Unhandled error handling request $request", e)
               Response.internalError(e.getMessage, request.id)
           }
-          val runningResponse = response.runAsync(requestScheduler)
+          val runningResponse = response.runToFuture(requestScheduler)
           activeClientRequests.put(request.id.asJson, runningResponse)
           Task.fromFuture(runningResponse)
       }
@@ -119,11 +119,11 @@ final class LanguageServer(
           case NonFatal(e) =>
             logger.error("Unhandled error", e)
         }
-        .runAsync(requestScheduler)
+        .runToFuture(requestScheduler)
     }
 
   def listen(): Unit = {
-    val f = startTask.runAsync(requestScheduler)
+    val f = startTask.runToFuture(requestScheduler)
     logger.info("Listening....")
     Await.result(f, Duration.Inf)
   }

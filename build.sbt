@@ -68,7 +68,7 @@ lazy val V = new {
   val circe = "0.10.0"
   val circeDerivation = "0.10.0-M1"
   val cats = "1.4.0"
-  val monix = "3.0.0-RC1"
+  val monix = "3.0.0-RC2"
 }
 
 lazy val jsonrpc = project

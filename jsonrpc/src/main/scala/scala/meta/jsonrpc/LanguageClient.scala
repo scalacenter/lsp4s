@@ -6,7 +6,7 @@ import io.circe.Encoder
 import io.circe.syntax._
 import java.io.OutputStream
 import java.nio.ByteBuffer
-import monix.eval.Callback
+import monix.execution.Callback
 import monix.eval.Task
 import monix.execution.Ack
 import monix.execution.Cancelable
@@ -26,7 +26,7 @@ class LanguageClient(out: Observer[ByteBuffer], logger: LoggerSupport)
   private val writer = new MessageWriter(out, logger)
   private val counter: AtomicInt = Atomic(1)
   private val activeServerRequests =
-    TrieMap.empty[RequestId, Callback[Response]]
+    TrieMap.empty[RequestId, Callback[Throwable, Response]]
   def notify[A: Encoder](method: String, notification: A): Future[Ack] =
     writer.write(Notification(method, Some(notification.asJson)))
   def serverRespond(response: Response): Future[Ack] = response match {

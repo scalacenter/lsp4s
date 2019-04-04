@@ -43,7 +43,7 @@ object Connection {
       LanguageClient.fromOutputStream(io.out, clientLogger)
     val server =
       new LanguageServer(messages, client, f(client), s, serverLogger)
-    Connection(client, server.startTask.executeAsync.runAsync)
+    Connection(client, server.startTask.executeAsync.runToFuture)
   }
 
 }

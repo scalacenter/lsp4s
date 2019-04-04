@@ -9,6 +9,8 @@ import io.circe.syntax._
 import monix.reactive.Observable
 import scribe.LoggerSupport
 
+import monix.eval.Task
+
 final class BaseProtocolMessage(
     val header: Map[String, String],
     val content: Array[Byte]
@@ -46,7 +48,7 @@ object BaseProtocolMessage {
       in: InputStream,
       logger: LoggerSupport
   ): Observable[BaseProtocolMessage] =
-    fromBytes(Observable.fromInputStream(in), logger)
+    fromBytes(Observable.fromInputStream(Task.now(in)), logger)
 
   def fromBytes(
       in: Observable[Array[Byte]],

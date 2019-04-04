@@ -62,7 +62,7 @@ object PingPongSuite extends SimpleTestSuite {
     for {
       _ <- Ping.notify("Ping from client")(conn.alice.client)
       _ <- Ping.notify("Ping from server")(conn.bob.client)
-      Right(helloWorld) <- Hello.request("Hello")(conn.alice.client).runAsync
+      Right(helloWorld) <- Hello.request("Hello")(conn.alice.client).runToFuture
       _ <- promise.future
     } yield {
       assertEquals(helloWorld, "Hello, World!")
